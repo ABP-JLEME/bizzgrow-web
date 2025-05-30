@@ -2,47 +2,88 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
-class User extends Authenticatable
+class User implements Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use AuthenticatableTrait;
+
+    public $id; // Akan menyimpan Firebase UID
+    public $email;
+    public $name;
+    public $photoUrl; // Tambahkan ini jika Anda ingin menyimpan URL foto profil
+    public $customClaims; // Untuk menyimpan custom claims dari Firebase token
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'id',
         'email',
-        'password',
+        'name',
+        'photoUrl',
+        'customClaims'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    public function __construct(array $attributes = [])
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        // Set attributes from constructor
+        foreach ($attributes as $key => $value) {
+            $this->{$key} = $value;
+        }
     }
+
+    /**
+     * Get the name of the unique identifier for the user.
+     */
+    public function getAuthIdentifierName()
+    {
+        return 'id'; // Firebase UID akan jadi identifier utama kita
+    }
+
+    /**
+     * Get the unique identifier for the user.
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get the password for the user.
+     * (Tidak digunakan karena Firebase mengelola password)
+     */
+    public function getAuthPassword()
+    {
+        return '';
+    }
+
+    /**
+     * Get the "remember me" token value.
+     */
+    public function getRememberToken()
+    {
+        return null; // Kita tidak menggunakan "remember me" token
+    }
+
+    /**
+     * Set the "remember me" token value.
+     */
+    public function setRememberToken($value)
+    {
+        // Do nothing
+    }
+
+    /**
+     * Get the "remember me" token name.
+     */
+    public function getRememberTokenName()
+    {
+        return ''; // Do nothing
+    }
+
+    // Anda bisa tambahkan metode lain jika perlu
 }

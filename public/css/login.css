@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: #0f172a;
+    /* Dark blue background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure body takes full viewport height */
+    position: relative;
+    /* For absolute positioning of circles */
+    overflow: hidden;
+    /* Hide overflowing circles */
+}
+
+.background-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    /* Adjust height for the wave section */
+    background-color: #1e40af;
+    /* Main wave color */
+    border-bottom-left-radius: 50% 20%;
+    /* Create a wave-like curve */
+    border-bottom-right-radius: 50% 20%;
+    z-index: 0;
+    /* Keep behind content */
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    /* Above background waves, below content */
+}
+
+.circle1 {
+    width: 280px;
+    height: 280px;
+    background-color: rgba(30, 64, 175, 0.7);
+    /* Slightly transparent blue */
+    top: 15vh;
+    left: -80px;
+    filter: blur(20px);
+    /* Soften the circle */
+}
+
+.circle2 {
+    width: 220px;
+    height: 220px;
+    background-color: rgba(15, 23, 42, 0.6);
+    /* Slightly transparent dark blue */
+    top: 30vh;
+    right: -60px;
+    filter: blur(25px);
+    /* Soften the circle */
+}
+
+.circle3 {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(30, 64, 175, 0.5);
+    /* More transparent blue */
+    bottom: -50px;
+    /* Position at the bottom */
+    left: 10%;
+    filter: blur(15px);
+    /* Soften the circle */
+}
+
+.content-wrapper {
+    position: relative;
+    /* This wrapper helps manage z-index for its children */
+    z-index: 2;
+    /* Ensure content is above background elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center items horizontally */
+    width: 100%;
+    /* Take full width */
+    padding-top: 80px;
+    /* Space from the top of the wave */
+    box-sizing: border-box;
+    /* Include padding in width */
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 40px;
+    /* Space before login container */
+    max-width: 90%;
+    /* Prevent text from being too wide on large screens */
+}
+
+.welcome-text h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.welcome-text p {
+    font-size: 20px;
+    margin-top: 8px;
+    color: #e2e8f0;
+    /* Slightly lighter white for better contrast */
+}
+
+.login-container {
+    max-width: 400px;
+    padding: 32px;
+    background-color: #1e2d3d;
+    /* Slightly lighter dark blue for the form */
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    /* Add some shadow */
+    width: 90%;
+    /* Adjust width for responsiveness */
+}
+
+.login-container label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #cbd5e1;
+    /* Lighter label color */
+}
+
+.login-container input {
+    width: calc(100% - 24px);
+    /* Account for padding */
+    padding: 12px;
+    margin-top: 8px;
+    background-color: #0f172a;
+    /* Darker input background */
+    border: 1px solid #475569;
+    /* Softer border color */
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+.login-container input::placeholder {
+    color: #94a3b8;
+    /* Placeholder color */
+}
+
+.login-container button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px;
+    background-color: #3b82f6;
+    /* Brighter blue for the button */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Smooth hover effect */
+}
+
+.login-container button:hover {
+    background-color: #2563eb;
+    /* Darker blue on hover */
+}
+
+.login-container .register-link {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 15px;
+    color: #a0aec0;
+    /* Softer link text color */
+}
+
+.login-container .register-link a {
+    color: #60a5fa;
+    /* Lighter blue for the link */
+    text-decoration: none;
+    /* Remove underline */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-container .register-link a:hover {
+    color: #3b82f6;
+    /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+    .welcome-text h1 {
+        font-size: 38px;
+    }
+
+    .welcome-text p {
+        font-size: 18px;
+    }
+
+    .background-waves {
+        height: 50vh;
+    }
+
+    .content-wrapper {
+        padding-top: 60px;
+    }
+
+    .login-container {
+        padding: 24px;
+    }
+}

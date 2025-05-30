@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: #0f172a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background-color: #1e40af;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+    z-index: 0;
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+
+.circle1 {
+    width: 280px;
+    height: 280px;
+    background-color: rgba(30, 64, 175, 0.7);
+    top: 15vh;
+    left: -80px;
+    filter: blur(20px);
+}
+
+.circle2 {
+    width: 220px;
+    height: 220px;
+    background-color: rgba(15, 23, 42, 0.6);
+    top: 30vh;
+    right: -60px;
+    filter: blur(25px);
+}
+
+.circle3 {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(30, 64, 175, 0.5);
+    bottom: -50px;
+    left: 10%;
+    filter: blur(15px);
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px 10px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+.welcome-text h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.welcome-text p {
+    font-size: 20px;
+    margin-top: 8px;
+    color: #e2e8f0;
+}
+
+.register-container {
+    max-width: 400px;
+    padding: 32px;
+    background-color: #1e2d3d;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Changed to 100% to fully utilize max-width */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.register-container label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #cbd5e1;
+}
+
+.register-container .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 8px; /* Move margin from input to wrapper */
+}
+
+.register-container .input-wrapper .icon {
+    position: absolute;
+    left: 12px;
+    color: #94a3b8; /* Softer color for icons */
+    font-size: 20px; /* Adjust icon size */
+    z-index: 4;
+}
+
+.register-container input {
+    width: 100%; /* Take full width of its parent (.input-wrapper) */
+    padding: 12px 12px 12px 40px; /* Increased left padding for icon */
+    background-color: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.register-container input::placeholder {
+    color: #94a3b8;
+}
+
+.register-container .input-wrapper .suffix-icon {
+    position: absolute;
+    right: 12px;
+    color: #94a3b8; /* Softer color for icons */
+    cursor: pointer;
+    font-size: 20px; /* Adjust icon size */
+    z-index: 4;
+    padding: 5px; /* Add padding to make click area larger */
+}
+
+.register-container button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-container button:hover {
+    background-color: #2563eb;
+}
+
+.register-container .login-link {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 15px;
+    color: #a0aec0;
+}
+
+.register-container .login-link a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-container .login-link a:hover {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+    .welcome-text h1 {
+        font-size: 38px;
+    }
+    .welcome-text p {
+        font-size: 18px;
+    }
+    .background-waves {
+        height: 50vh;
+    }
+    .content-wrapper {
+        padding-top: 60px;
+        padding-bottom: 20px; /* Adjusted padding for small screens */
+    }
+    .register-container {
+        padding: 24px;
+    }
+    .circle1 {
+        /* Adjust circle positions for smaller screens if needed */
+        top: 10vh;
+        left: -100px;
+    }
+    .circle2 {
+        top: 25vh;
+        right: -80px;
+    }
+    .circle3 {
+        bottom: -30px;
+        left: 5%;
+    }
+}
