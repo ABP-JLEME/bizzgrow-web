@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard - BizzGrow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Profile - Akun</title>
     <style>
-        body {
+          body {
             margin: 0;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
@@ -364,12 +362,261 @@
                 font-size: 13px;
             }
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #1a2332;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #34495e;
+        }
+
+        .status-bar {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .time {
+            color: white;
+        }
+
+        .icons {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin: 20px 0;
+        }
+
+        .profile-section {
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            overflow: hidden;
+        }
+
+        .avatar-icon {
+            width: 35px;
+            height: 35px;
+            background: #95a5a6;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .avatar-icon::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .avatar-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 12px;
+            background: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .profile-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .profile-email {
+            color: #bdc3c7;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .profile-date {
+            color: #95a5a6;
+            font-size: 12px;
+        }
+
+        .chevron-right {
+            margin-left: auto;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid #95a5a6;
+            border-top: 2px solid #95a5a6;
+            transform: rotate(45deg);
+        }
+
+        .menu-section {
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #95a5a6;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .menu-group {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-text {
+            flex: 1;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .logout-button {
+            margin: 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .logout-button:hover {
+            background: #c0392b;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a2332;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-top: 1px solid #34495e;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #95a5a6;
+            text-decoration: none;
+            font-size: 10px;
+        }
+
+        .nav-item.active {
+            color: #3498db;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            background: currentColor;
+            border-radius: 2px;
+        }
+
+        .content {
+            padding-bottom: 80px;
+        }
     </style>
 </head>
 
 <body>
-
-    <div class="app-layout">
+  
+<div class="app-layout">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">BizzGrow</div>
             <ul class="sidebar-menu">
@@ -406,84 +653,116 @@
                     </a>
                 </li>
             </ul>
+        </aside>
 
-            <button class="logout-button" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+         <!-- <button class="logout-button" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path fill-rule="evenodd" d="M7.5 3.75A1.5 1.5 0 0 0 6 5.25v13.5a1.5 1.5 0 0 0 1.5 1.5h6a1.5 1.5 0 0 0 1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a.75.75 0 0 1-.75.75h-6a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1-.75-.75h6a.75.75 0 0 1 .75.75V9a.75.75 0 0 0 1.5 0V5.25a1.5 1.5 0 0 0-1.5-1.5h-6Zm10.72 4.03a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06l3.03-3.03H10.5a.75.75 0 0 1 0-1.5h4.94l-3.03-3.03a.75.75 0 0 1 1.06-1.06l4.25 4.25Z" clip-rule="evenodd" />
                 </svg>
                 Logout
-            </button>
-        </aside>
+            </button> -->
 
         <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
 
+    
+    <main class="main-content">
+        <div class="content">
+            <h1 class="page-title">Akun</h1>
 
-        <main class="main-content" id="main-content">
-            <div class="dashboard-container">
-                <div class="header-section">
-                    <div class="user-profile">
-                        <img src="{{ $photoUser ?? asset('images/default-avatar.png') }}" alt="User Avatar" class="profile-avatar">
-                        <span class="user-name">{{ $namaUser ?? 'Loading...' }}</span>
+            <div class="profile-section">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <div class="avatar-icon"></div>
                     </div>
-                    <button class="settings-button" onclick="showProfileSettings()">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M11.078 2.296a.75.75 0 0 1 .844 0 9.75 9.75 0 0 1 5.924 5.924.75.75 0 0 1 0 .844 9.75 9.75 0 0 1-5.924 5.924.75.75 0 0 1-.844 0 9.75 9.75 0 0 1-5.924-5.924.75.75 0 0 1 0-.844 9.75 9.75 0 0 1 5.924-5.924ZM9.75 12a2.25 2.25 0 1 0 4.5 0 2.25 2.25 0 0 0-4.5 0ZM12 1.5A10.5 10.5 0 1 0 22.5 12 10.5 10.5 0 0 0 12 1.5Z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="info-cards-row">
-                    <div class="info-card">
-                        <div class="card-icon">&#128176;</div>
-                        <div class="card-value">{{ $totalPendapatanFormatted ?? 'Rp 0' }}</div>
-                        <div class="card-label">Total pendapatan</div>
+                    <div class="profile-info">
+                        <h3>megy</h3>
+                        <div class="profile-email">m@gmail.com</div>
+                        <div class="profile-date">Bergabung sejak 2 Juni 2025</div>
                     </div>
-                    <div class="info-card">
-                        <div class="card-icon">&#128200;</div>
-                        <div class="card-value">{{ $totalProdukTerjual ?? '0' }}</div>
-                        <div class="card-label">Total produk terjual</div>
-                    </div>
+                    <div class="chevron-right"></div>
                 </div>
-
-                <h2 class="dashboard-section-title">Aktivitas Terakhir</h2>
-                <div class="dashboard-content-placeholder">
-                    <p>Data aktivitas terbaru akan ditampilkan di sini.</p>
-                </div>
-
-                <h2 class="dashboard-section-title">Laporan Keuangan Cepat</h2>
-                <div class="dashboard-content-placeholder">
-                    <p>Grafik dan ringkasan keuangan akan ditampilkan di sini.</p>
-                </div>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-
             </div>
-        </main>
-    </div>
 
+            <div class="menu-section">
+                <div class="section-title">Preferensi</div>
+                <div class="menu-group">
+                    <div class="menu-item">
+                        <div class="menu-icon">🔔</div>
+                        <div class="menu-text">Notifikasi</div>
+                        <div class="chevron-right"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🌐</div>
+                        <div class="menu-text">Bahasa</div>
+                        <div class="chevron-right"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🎨</div>
+                        <div class="menu-text">Tema</div>
+                        <div class="chevron-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <div class="section-title">Bantuan</div>
+                <div class="menu-group">
+                    <div class="menu-item">
+                        <div class="menu-icon">❓</div>
+                        <div class="menu-text">Pusat Bantuan</div>
+                        <div class="chevron-right"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">📋</div>
+                        <div class="menu-text">Ketentuan Layanan</div>
+                        <div class="chevron-right"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🛡️</div>
+                        <div class="menu-text">Kebijakan Privasi</div>
+                        <div class="chevron-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <div class="section-title">Tentang Aplikasi</div>
+                <div class="menu-group">
+                    <div class="menu-item">
+                        <div class="menu-icon">📱</div>
+                        <div class="menu-text">versi 1.0.0</div>
+                        <div class="chevron-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="logout-button">
+                <span>🚪</span>
+                Keluar Akun
+            </button>
+        </div>
+    </main>
+</div>
     <script>
-        // Fungsi untuk menampilkan popup profil (placeholder)
-        function showProfileSettings() {
-            alert('Settings / Profile popup would appear here. You can implement this using a modal dialog.');
-        }
-
-        // Script untuk toggle sidebar di mobile
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebar = document.getElementById('sidebar');
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mainContent = document.getElementById('main-content');
-
-            mobileMenuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-                // Optional: add overlay to main content when sidebar is open
-                // mainContent.classList.toggle('sidebar-open-overlay');
+        // Add click handlers for menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                console.log('Menu item clicked:', this.querySelector('.menu-text').textContent);
             });
+        });
 
+        // Add click handler for logout button
+        document.querySelector('.logout-button').addEventListener('click', function() {
+            if(confirm('Apakah Anda yakin ingin keluar dari akun?')) {
+                // Handle logout logic here
+                console.log('User logged out');
+            }
+        });
+
+        // Add click handler for profile card
+        document.querySelector('.profile-card').addEventListener('click', function() {
+            console.log('Profile card clicked');
         });
     </script>
-
 </body>
-
 </html>
