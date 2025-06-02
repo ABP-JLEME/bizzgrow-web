@@ -1,0 +1,382 @@
+/* --- GLOBAL LAYOUT & RESET STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    display: flex; /* Penting untuk layout flexbox utama */
+    background: linear-gradient(to bottom right, #1e40af, #0f172a);
+    color: white;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+.app-layout {
+    display: flex;
+    width: 100%;
+}
+
+/* --- MAIN CONTENT AREA STYLES (Adjusted for fixed sidebar) --- */
+.main-content {
+    flex-grow: 1;
+    margin-left: 250px; /* Offset untuk lebar sidebar */
+    padding: 30px;
+    max-width: calc(100% - 250px);
+    box-sizing: border-box;
+    overflow-y: auto; /* Memungkinkan konten utama discroll */
+}
+
+/* Container umum untuk konten dalam main-content */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-section {
+    /* Ensure this is defined or adjusted if it's from previous dashboard code */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.header-section .profile-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    background-color: #3b82f6;
+    border: 2px solid white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-section .profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.user-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* --- RESPONSIVE ADJUSTMENTS FOR MAIN CONTENT --- */
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 0; /* Di mobile, sidebar tersembunyi, jadi tidak perlu margin */
+        max-width: 100%;
+        padding: 20px; /* Sesuaikan padding */
+    }
+
+    /* Beri ruang untuk tombol toggle di header section (jika ada) */
+    .header-section {
+        padding-left: 50px;
+    }
+}
+
+/* --- DASHBOARD SPECIFIC STYLES (Jika ini akan digunakan di halaman dashboard) --- */
+/* Dipindahkan dari dashboard.blade.php Anda */
+.info-cards-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Izinkan card wrap di layar kecil */
+}
+
+.info-card {
+    flex: 1;
+    min-width: 280px; /* Minimum width agar card tidak terlalu kecil */
+    background: linear-gradient(to bottom right, #1e40af, #3b82f6);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-label {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dashboard-section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.dashboard-content-placeholder {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+}
+
+/* --- PROFILE PAGE SPECIFIC STYLES (Dipindahkan dari profile.blade.php Anda) --- */
+/* Perlu diperhatikan agar tidak ada konflik nama kelas */
+.profile-page-header {
+    /* Ubah nama kelas jika ada potensi konflik dengan .header-section dashboard */
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin: 20px 0;
+}
+
+.profile-section {
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-card .profile-avatar {
+    /* Target lebih spesifik untuk avatar di profile card */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #bdc3c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    overflow: hidden;
+}
+
+.avatar-icon {
+    width: 35px;
+    height: 35px;
+    background: #95a5a6;
+    border-radius: 50%;
+    position: relative;
+}
+.avatar-icon::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+}
+.avatar-icon::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 12px;
+    background: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.profile-info h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.profile-email {
+    color: #bdc3c7;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.profile-date {
+    color: #95a5a6;
+    font-size: 12px;
+}
+
+.profile-card .chevron-right {
+    /* Target lebih spesifik untuk chevron di profile card */
+    margin-left: auto;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #95a5a6;
+    border-top: 2px solid #95a5a6;
+    transform: rotate(45deg);
+}
+
+.menu-section {
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #95a5a6;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.menu-group {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-text {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Logout button di main content */
+.main-content-logout-button {
+    /* Nama kelas yang lebih spesifik */
+    margin: 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.main-content-logout-button:hover {
+    background: #c0392b;
+}
+
+/* Bottom Nav (jika relevan untuk mobile) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1a2332;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    border-top: 1px solid #34495e;
+    z-index: 999;
+    /* Pastikan ini hanya muncul di mobile */
+    display: none;
+}
+@media (max-width: 768px) {
+    .bottom-nav {
+        display: flex; /* Tampilkan di mobile */
+    }
+    .content {
+        padding-bottom: 80px; /* Beri ruang untuk bottom nav jika ada */
+    }
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #95a5a6;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+.nav-item.active {
+    color: #3498db;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    background: currentColor;
+    border-radius: 2px;
+}

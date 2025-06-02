@@ -26,7 +26,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
     Route::post('/logout', [FirebaseAuthController::class, 'logout'])->name('logout');
-
-    // Semua interaksi data Firestore dari frontend akan dilakukan langsung di JavaScript
-    // Jadi Anda tidak perlu rute API Laravel di sini untuk CRUD Firestore.
 });
