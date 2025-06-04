@@ -25,5 +25,10 @@ Route::post('/auth/verify-firebase-token', [FirebaseAuthController::class, 'veri
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
+
+    Route::get('/penjualan', function () {
+        return view('penjualan');
+    })->name('penjualan');
+
     Route::post('/logout', [FirebaseAuthController::class, 'logout'])->name('logout');
 });

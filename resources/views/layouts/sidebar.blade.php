@@ -8,7 +8,7 @@
             </a>
         </li>
         <li class="sidebar-menu-item">
-            <a href="#"> 
+            <a href="{{ route('penjualan') }}"> 
                 <span class="emoji-icon">&#128722;</span>
                 Penjualan
             </a>

@@ -1,0 +1,189 @@
+/* Basic Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: flex-end; /* Aligns modal to the bottom */
+    z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.modal-content {
+    background-color: #2c2c2e; /* Dark background similar to your Flutter app's colorbackground */
+    color: #ffffff; /* fontwhite */
+    width: 100%;
+    max-width: 500px; /* Or adjust as needed */
+    padding: 20px;
+    border-radius: 24px 24px 0 0; /* Rounded top corners */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+    max-height: 90vh; /* Max height */
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-body {
+    overflow-y: auto; /* Scroll for content */
+    padding-bottom: 16px; /* Space for save button if content scrolls */
+}
+
+.profile-edit-avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.profile-edit-avatar-container {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.profile-edit-avatar {
+    width: 96px; /* radius 48 * 2 */
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #555; /* Optional border */
+}
+
+.profile-edit-camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #007bff; /* blue */
+    color: white;
+    border-radius: 50%;
+    width: 36px; /* radius 18 * 2 */
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid #2c2c2e; /* To make it look like it's on top */
+}
+.profile-edit-camera-icon svg {
+    /* Simple camera icon */
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+.profile-edit-change-photo-text {
+    color: #007bff; /* blue */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    color: #a0a0a0; /* Lighter label text */
+    margin-bottom: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #3a3a3c; /* Slightly lighter than modal bg */
+    border: 1px solid #555; /* enabledBorder */
+    border-radius: 4px;
+    color: white;
+    box-sizing: border-box;
+}
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff; /* blue */
+}
+
+.modal-save-btn {
+    width: 100%;
+    background-color: #007bff; /* blue */
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 16px; /* Space from last element */
+}
+.modal-save-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Hidden file input */
+#profile-image-upload {
+    display: none;
+}
+
+/* SnackBar styling */
+.snackbar {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    background-color: #007bff; /* accentBlueColor */
+    color: white; /* textWhiteColor */
+    padding: 12px 20px;
+    border-radius: 12px; /* Rounded snackbar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1050; /* Above modal overlay */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, bottom 0.3s;
+}
+.snackbar.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 50px;
+}
+.snackbar.error {
+    background-color: #dc3545; /* Colors.redAccent equivalent */
+}
+
+/* Make profile-card clickable */
+.profile-card {
+    cursor: pointer;
+}
