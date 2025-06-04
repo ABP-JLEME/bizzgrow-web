@@ -22,12 +22,12 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyBc49rzGyXD1AUfM6x22ddQP_oV8q93Y_g", // KEEP YOUR ACTUAL KEY SAFE
-            authDomain: "bizzgrow-9644e.firebaseapp.com",
-            projectId: "bizzgrow-9644e",
-            storageBucket: "bizzgrow-9644e.appspot.com", // Corrected: remove .firebasestorage
-            messagingSenderId: "283921804867",
-            appId: "1:283921804867:web:0caa9479e1e177deb82ef6"
+            apiKey: "{{ env('FIREBASE_API_KEY') }}",
+            authDomain: "{{ env('FIREBASE_AUTH_DOMAIN') }}",
+            projectId: "{{ env('FIREBASE_PROJECT_ID') }}",
+            storageBucket: "{{ env('FIREBASE_STORAGE_BUCKET') }}",
+            messagingSenderId: "{{ env('FIREBASE_MESSAGING_SENDER_ID') }}",
+            appId: "{{ env('FIREBASE_APP_ID') }}"
         };
 
         const app = firebase.initializeApp(firebaseConfig);

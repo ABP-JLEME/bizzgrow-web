@@ -5,71 +5,7 @@
 @section('title', 'Tambah Data Penjualan')
 
 @push('styles')
-<style>
-    .snackbar {
-        position: fixed;
-        left: 50%;
-        bottom: 30px;
-        transform: translateX(-50%);
-        color: white;
-        padding: 14px 22px;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        z-index: 1050;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s, visibility 0.3s, bottom 0.3s;
-        font-size: 1rem;
-    }
-    .snackbar.show {
-        opacity: 1;
-        visibility: visible;
-        bottom: 50px;
-    }
-    .snackbar.success {
-        background-color: #28a745; /* Green for success */
-    }
-    .snackbar.error {
-        background-color: #dc3545; /* Red for error */
-    }
-    .loading-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(17, 24, 39, 0.8); /* bg-gray-900 with opacity */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000; /* High z-index */
-    }
-    .loader {
-      border: 8px solid #4b5563; /* gray-600 */
-      border-top: 8px solid #3b82f6; /* blue-500 */
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    /* Style untuk input type="date" agar lebih konsisten dengan tema gelap */
-    input[type="date"] {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        color-scheme: dark; /* Memberitahu browser untuk menggunakan UI gelap jika tersedia */
-    }
-    /* Indikator kalender untuk input date di Chrome/Edge */
-    input[type="date"]::-webkit-calendar-picker-indicator {
-        filter: invert(0.8) brightness(1.2) contrast(1.2); /* Membuat ikon lebih terang di tema gelap */
-        cursor: pointer;
-    }
-
-</style>
+    <link rel="stylesheet" href="{{ asset('css/penjualan.css') }}">
 @endpush
 
 @section('content')

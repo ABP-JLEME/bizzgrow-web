@@ -7,10 +7,7 @@
 @section('content')
 
 {{-- === START: Firebase Initialization and Chart.js === --}}
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"></script> {{-- date-fns utility --}}
 
@@ -483,19 +480,7 @@
 </div>
 
 <script>
-    const firebaseConfig = {
-        apiKey: "{{ env('FIREBASE_API_KEY') }}",
-        authDomain: "{{ env('FIREBASE_AUTH_DOMAIN') }}",
-        projectId: "{{ env('FIREBASE_PROJECT_ID') }}",
-        storageBucket: "{{ env('FIREBASE_STORAGE_BUCKET') }}",
-        messagingSenderId: "{{ env('FIREBASE_MESSAGING_SENDER_ID') }}",
-        appId: "{{ env('FIREBASE_APP_ID') }}"
-    };
 
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
     const dateFns = window.dateFns; // Use date-fns from global scope
 
     // DOM Elements
