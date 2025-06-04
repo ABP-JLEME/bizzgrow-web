@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="sidebar-menu-item">
-            <a href="#"> 
+            <a href="{{ route('prediksi') }}" class="{{ request()->routeIs('prediksi') ? 'active' : '' }}"> 
                 <span class="emoji-icon">&#128302;</span> 
                 Prediksi
             </a>

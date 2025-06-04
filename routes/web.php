@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirebaseAuthController;
 use App\Http\Controllers\DashboardController; // Pastikan ini diimport
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\prediksiController;
 
 // --- Public Routes (Auth Forms, Onboarding, Welcome) ---
 Route::get('/', function () {
@@ -24,6 +25,7 @@ Route::post('/auth/verify-firebase-token', [FirebaseAuthController::class, 'veri
 // --- Protected Routes (Perlu Login) ---
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
+    Route::get('/prediksi', [prediksiController::class, 'showPrediksiPage'])->name('prediksi');
     Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
     Route::post('/logout', [FirebaseAuthController::class, 'logout'])->name('logout');
 });
