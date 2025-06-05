@@ -20,7 +20,7 @@
 
     <div class="content-wrapper">
         <div class="welcome-text">
-            <h1>Selamat datang :)</h1>
+            <h1>Selamat datang!👋</h1>
             <p>Silakan login untuk masuk ke BizzGrow...</p>
         </div>
 

@@ -19,26 +19,73 @@
     }
 
     .prediksi-card {
-        background-color: #2C2F33; /* cardBackgroundColor approximation */
+        /* background-color: #2C2F33; cardBackgroundColor approximation */
         border-radius: 16px;
         padding: 20px;
         margin-bottom: 24px;
-        border: 1px solid #4F545C; /* subtleBorderColor approximation */
+        /* border: 1px solid #4F545C; subtleBorderColor approximation */
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Dropdown (Select) Styling */
+    .prediksi-card .form-select { /* Target .form-select di dalam .prediksi-card */
+        background-color: #374151; /* CONTOH: Warna abu-abu terang, SESUAIKAN dengan input manual Anda */
+                                    /* Jika input manual menggunakan #36393F, maka biarkan seperti itu */
+        border: 1.2px solid #5A5E63; /* Border yang sudah ada, bisa disesuaikan jika input manual berbeda */
+        color: #E5E7EB; /* Warna teks */
+        /* Pastikan padding dan font-size konsisten */
+        padding: 12px 16px;
+        font-size: 15px;
+        border-radius: 8px; /* Sesuaikan border-radius jika berbeda */
+        /* ... properti lain yang sudah ada untuk .form-select seperti background-image untuk panah ... */
+    }
+
+    .prediksi-card .form-select:focus {
+        border-color: #00A3FF; /* Warna border saat focus (accentBlueColor) */
+        box-shadow: 0 0 0 0.2rem rgba(0, 163, 255, 0.25); /* Shadow saat focus */
+        background-color: #374151; /* CONTOH: Warna background saat focus sedikit lebih gelap dari normal */
+                                    /* Sesuaikan dengan perilaku focus input manual */
+    }
+
+    /* Small text di bawah dropdown produk */
+    .prediksi-card .form-group small {
+        color: #A0A0A0; /* Warna abu-abu yang lebih lembut untuk teks kecil */
+        font-size: 12px;
+        margin-top: 6px; /* Sedikit lebih banyak ruang */
+        display: block;
+    }
+
+
+    /* Segmented Control Styling */
+    .prediksi-card .segmented-control { /* Target .segmented-control di dalam .prediksi-card */
+        border-radius: 8px; /* Sesuaikan border-radius jika berbeda */
+        overflow: hidden;
+        border: 1.2px solid #5A5E63; /* Sesuaikan jika input manual berbeda */
+        /* Hapus background dari parent jika anak-anaknya yang akan diberi background */
+        /* background-color: transparent; */
+    }
+
+    .prediksi-card .segmented-control label {
+        background-color: #374151; /* CONTOH: Warna abu-abu terang (sama dengan dropdown) */
+        color: #B0B0B0; /* Warna teks untuk item yang tidak dipilih */
+        padding-top: 12px;
+        padding-bottom: 12px;
+        /* ... properti lain yang sudah ada untuk label ... */
+        border-right: 1.2px solid #50545B; /* Warna border pemisah antar tombol, sedikit lebih gelap dari border utama */
     }
 
     .prediksi-section-title {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-        font-weight: 600;
+        /* font-size: 18px;
+        font-weight: 600; */
         margin-bottom: 16px;
-        color: #E0E0E0; /* textWhiteColor */
+        /* color: #E0E0E0; textWhiteColor */
     }
     .prediksi-section-title i { /* Material Icons class */
         margin-right: 10px;
-        color: #00A3FF; /* accentBlueColor approximation */
+        color: #2563EB; /* accentBlueColor approximation */
         font-size: 22px;
     }
 
@@ -74,7 +121,9 @@
 
     .form-control:focus, .form-select:focus {
         outline: none;
-        border-color: #00A3FF; /* accentBlueColor */
+        border-color: #2563EB
+
+; /* accentBlueColor */
         box-shadow: 0 0 0 0.2rem rgba(0, 163, 255, 0.25);
     }
 
@@ -119,7 +168,9 @@
     }
 
     .segmented-control input[type="radio"]:checked + label {
-        background-color: #00A3FF; /* accentBlueColor */
+        background-color: #2563EB
+
+; /* accentBlueColor */
         color: #FFFFFF; /* textWhiteColor */
     }
     .segmented-control label:not(:last-child) {
@@ -133,7 +184,7 @@
         font-size: 18px;
         font-weight: bold;
         color: #FFFFFF;
-        background-color: #00A3FF; /* accentBlueColor */
+        background-color: #2563EB; /* accentBlueColor */
         border: none;
         border-radius: 12px;
         cursor: pointer;
@@ -148,10 +199,10 @@
     }
 
     .btn-predict:hover {
-        background-color: #007acc;
+        background-color:rgb(34, 90, 211);
     }
     .btn-predict:disabled {
-        background-color: #00A3FF80; /* accentBlueColor with opacity */
+        background-color:rgba(37, 100, 235, 0.8); /* accentBlueColor with opacity */
         color: #E0E0E0B3; /* textWhite70Color with opacity */
         cursor: not-allowed;
     }
@@ -172,10 +223,10 @@
 
     .key-metric-card {
         flex: 1;
-        background-color: #2C2F33; /* cardBackgroundColor */
+        /* background-color: #2C2F33; cardBackgroundColor */
         padding: 18px 16px;
         border-radius: 14px;
-        border: 1px solid #4F545C;
+        /* border: 1px solid #4F545C; */
         box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
     .key-metric-card-header {
@@ -290,7 +341,7 @@
     }
     .placeholder-info i {
         font-size: 48px;
-        color: rgba(0, 163, 255, 0.8); /* accentBlueColor with opacity */
+        color: rgba(37, 99, 235, 0.8); /* accentBlueColor with opacity */
         margin-bottom: 16px;
     }
     .placeholder-info p {
@@ -306,20 +357,20 @@
         left: 50%;
         bottom: 30px;
         transform: translateX(-50%);
-        padding: 12px 20px;
+        padding: 12px 18px;
         border-radius: 12px;
         color: white;
         font-size: 15px;
         z-index: 1000;
         display: flex;
         align-items: center;
-        justify-content: center; 
+        justify-content: flex-start; 
         text-align: left;
         box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         opacity: 0;
         transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
         min-width: 280px; 
-        max-width: 450px;
+        max-width: 550px;
         box-sizing: border-box;
     }
     .snackbar.show {
@@ -330,12 +381,15 @@
     .snackbar.success { background-color: #28A745; } /* successColor */
     .snackbar.warning { background-color: #FFC107; color: #212529; } /* warningColor */
     .snackbar i { 
-        margin-right: 10px; 
-        font-size: 20px; 
+        margin-right: 12px; 
+        font-size: 22px; 
         flex-shrink: 0;
+        display: inline-flex;
+        vertical-align: middle;
     }
     .snackbar span { /* Teks pesan */
-        flex-grow: 1; /* Biarkan teks mengambil sisa ruang jika perlu */
+        /* flex-grow: 1; Biarkan teks mengambil sisa ruang jika perlu */
+        line-height: 1.4; 
     }
 
 
@@ -355,14 +409,19 @@
 
 <div class="prediksi-container">
     {{-- Notification Snackbar Placeholder --}}
+    <header class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Prediksi Data Penjualan</h1>
+        <p class="text-lg text-gray-400 mt-3 max-w-2xl mx-auto">Analisis tren penjualan masa depan berdasarkan data historis untuk pengambilan keputusan yang lebih baik.</p>
+    </header>
+
     <div id="snackbar" class="snackbar">
-        <i class="material-icons-outlined" id="snackbar-icon"></i>
+        <!-- <i class="material-icons-outlined" id="snackbar-icon"></i> -->
         <span id="snackbar-message"></span>
     </div>
 
     {{-- Settings Section --}}
-    <div class="prediksi-card">
-        <h2 class="prediksi-section-title">
+    <div class="prediksi-card bg-gray-800">
+        <h2 class="prediksi-section-title text-2xl xl:text-3xl font-semibold text-white mb-8 border-b border-gray-700 pb-4 flex items-center">
             <i class="material-icons-outlined">settings_applications</i>
             Konfigurasi Prediksi
         </h2>
@@ -418,14 +477,14 @@
     </div>
 
     <div id="error-display" class="error-display" style="display: none;">
-        <i class="material-icons-outlined">error_rounded</i>
+        <!-- <i class="material-icons-outlined">error_rounded</i> -->
         <span id="error-message"></span>
     </div>
     
     <div id="results-section" style="display: none; margin-top: 24px;">
         <h2 class="results-section-title" id="results-title">Forecast Insights for "Item"</h2>
         <div class="key-metrics-row">
-            <div class="key-metric-card">
+            <div class="key-metric-card bg-gray-800">
                 <div class="key-metric-card-header">
                     <div>
                         <div class="key-metric-title">Hasil Prediksi Pendapatan</div>
@@ -435,7 +494,7 @@
                 </div>
                 <div class="key-metric-value" id="predicted-revenue">Rp 0</div>
             </div>
-            <div class="key-metric-card">
+            <div class="key-metric-card bg-gray-800">
                  <div class="key-metric-card-header">
                     <div>
                         <div class="key-metric-title">Pertumbuhan Penjualan</div>
@@ -447,7 +506,7 @@
             </div>
         </div>
 
-        <div class="prediksi-card">
+        <div class="prediksi-card bg-gray-800">
             <h2 class="prediksi-section-title">
                 <i class="material-icons-outlined">insights</i>
                 Sales Trend & Forecast
@@ -505,7 +564,7 @@
     const salesGrowthPercentageSpan = document.getElementById('sales-growth-percentage');
     
     const snackbar = document.getElementById('snackbar');
-    const snackbarIcon = document.getElementById('snackbar-icon');
+    // const snackbarIcon = document.getElementById('snackbar-icon');
     const snackbarMessage = document.getElementById('snackbar-message');
 
     // State variables
@@ -535,9 +594,9 @@
         snackbarMessage.textContent = message;
         snackbar.className = 'snackbar show ' + type; // Reset classes and add new ones
         
-        if (type === 'error') snackbarIcon.textContent = 'error_outline_rounded';
-        else if (type === 'warning') snackbarIcon.textContent = 'warning_amber_rounded';
-        else snackbarIcon.textContent = 'check_circle_outline_rounded';
+        // if (type === 'error') snackbarIcon.textContent = 'error_outline_rounded';
+        // else if (type === 'warning') snackbarIcon.textContent = 'warning_amber_rounded';
+        // else snackbarIcon.textContent = 'check_circle_outline_rounded';
 
         setTimeout(() => {
             snackbar.className = snackbar.className.replace('show', '');
