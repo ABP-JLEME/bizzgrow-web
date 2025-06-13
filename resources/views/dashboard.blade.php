@@ -178,7 +178,7 @@
             }).catch(error => {
                 console.error("Error fetching user data from Firestore:", error);
                 if (dashboardUserNameSpan) dashboardUserNameSpan.textContent = user.displayName || user.email || "Pengguna";
-                if (dashboardUserPhotoImg) dashboardUserPhotoImg.src = user.photoURL || defaultUserPhoto;
+                if (dashboardUserPhotoImg) dashboardUserPhotoImg.src = defaultUserPhoto;
             });
         } else {
             if (dashboardUserNameSpan) dashboardUserNameSpan.textContent = "Pengguna Tamu";

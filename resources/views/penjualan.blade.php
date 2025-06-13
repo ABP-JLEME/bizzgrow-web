@@ -41,7 +41,7 @@
                     <label for="productName" class="block mb-2 text-sm font-medium text-gray-300">Nama Produk</label>
                     <input type="text" id="productName" name="productName"
                            class="block w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-500"
-                           placeholder="Contoh: Kemeja Flanel Premium" required>
+                           placeholder="Masukkan produk anda" required>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">

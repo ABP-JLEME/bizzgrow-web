@@ -8,7 +8,7 @@
             </a>
         </li>
         <li class="sidebar-menu-item">
-            <a href="{{ route('penjualan') }}"> 
+            <a href="{{ route('penjualan') }}" class="{{ request()->routeIs('penjualan') ? 'active' : '' }}"> 
                 <span class="emoji-icon">&#128722;</span>
                 Penjualan
             </a>
